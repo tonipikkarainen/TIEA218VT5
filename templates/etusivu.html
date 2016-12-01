@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Videovuokraamo</title> 
+  <meta charset="UTF-8" />
+  <link href="http://users.jyu.fi/~totapikk/cgi-bin/vt5/vt5.css" rel="StyleSheet" type="text/css" />
+  <script type="text/javascript" src="http://users.jyu.fi/~totapikk/cgi-bin/vt5/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="http://users.jyu.fi/~totapikk/cgi-bin/vt5/vt5.js"></script>
+</head>
+<body> 
+
+
+<nav class="navbar">
+<a id="logout" href="#">LOGOUT</a>
+<a id="elo_valinta" href="#">Elokuvat</a>
+<a id="vuokraus_valinta" href="#">Vuokraukset</a>
+<a id="jasen_valinta" href="#">Jäsenet</a>
+</nav>
+<form id="kirjauslomake" action="#" method="post">
+<p>
+<label>Anna tunnus: <input type="text" name="tunnus" id="tunnus" /></label>
+</p>
+
+<p>
+<label>Anna salasana: <input type="password" name="salasana" id="salasana" /></label>
+</p>
+
+<p>
+<input type="submit" name="laheta_kirjaus" id="laheta_kirjaus" value="Kirjaudu" />
+</p>
+<p id="virhe_kirjaus"></p>
+</form>
+
+ <div class="modal" >
+    <div class="center">
+        <img alt="" src="http://users.jyu.fi/~totapikk/cgi-bin/vt5/ajax-loader.gif" />
+    </div>
+</div>
+
+<form id="lomake" action="#" method="post">
+<fieldset>
+
+<div id="jasen_info">
+  <label for="jasen">Jäsen</label>
+  <select id="jasen" name="jasen"></select>
+</div>
+<div id="elokuva_info">
+  <label for="elokuva">Elokuva</label>
+  <select id="elokuva" name="elokuva"></select>
+</div>
+
+<div id="vpvm_info">
+  <label for="vpvm">Vuokrauspäivämäärä</label>
+  <input type="text" id="vpvm" name="vpvm" size="20" maxlength="10"/>
+ 
+</div >
+<div id="ppvm_info">
+  <label for="ppvm">Palautuspäivämäärä</label>
+  <input type="text" id="ppvm" name="ppvm" size="20" maxlength="10"/>
+</div>
+
+<div id="uusi_elokuva">
+
+
+
+
+<p><input type="submit" name="poista_elokuva" id="poista_elokuva" value="Poista elokuva" />
+</p>
+<label for="lajityypit">Lajityypit: </label>
+<select id="lajityypit" name="lajityyppi">
+</select>
+<p><label>Nimi: <input type="text" name="elokuvannimi"  /></label></p> 
+<p><label>Julkaisuvuosi: <input type="text" name="julkaisuvuosi" /></label></p>
+<p><label>Vuokrahinta: <input type="text" name="vuokrahinta" /></label></p>
+<p><label>Arvio: <input type="text" name="arvio" /></label></p>
+<input type="submit" name="lisaa_elokuva" id="lisaa_elokuva" value="Lisää elokuva" />
+</div>
+
+<div id="uusi_jasen">
+
+<p><input type="submit" name="poista_jasen" id="poista_jasen" value="Poista jäsen" />
+</p>
+
+<p><label>Nimi: <input type="text" name="jasenennimi"  /></label></p> 
+<p><label>Osoite: <input type="text" name="osoite" /></label></p>
+<p><label>Liittymispäivämäärä: <input type="text" name="liittymispvm" /></label></p>
+<p><label>Syntymävuosi <input type="text" name="syntymavuosi" /></label></p>
+<input type="submit" name="lisaa_jasen" id="lisaa_jasen" value="Lisää jäsen" />
+</div>
+
+<p id="virhe"></p>
+</fieldset>
+<p><input type="submit" name="laheta" id="laheta"  value="Lisää vuokraus" /></p>
+<p><input type="submit" name="muokkaa_vuok" id="muokkaa_vuok"  value="Muokkaa vuokrausta" /></p>
+</form>
+<div id="vuokraukset">
+</div>
+
+</body>
+</html>

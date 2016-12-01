@@ -1,0 +1,22 @@
+/*
+vt5 tyylitiedosto
+*/
+
+a{
+    text-decoration:none;
+    padding-right:2em;
+    /*padding-left:2em;*/
+}
+
+.hidePallo{
+    list-style-type:none;
+}
+
+.modal{
+    display:none;
+}
+
+.center{
+
+    text-align:center;
+}

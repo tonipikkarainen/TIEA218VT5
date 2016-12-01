@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<select id="jasen" name="jasen" xmlns="http://www.w3.org/1999/xhtml">
+{% if kirjaus=="ok" %}   
+  {% set j = 0 %}
+  {% for p in jasenet %}
+        {% if j==0 %}
+        <option selected="selected" value="{{ p['jid'] }}">{{ p['jasen'] }} </option>
+        {% else %}
+        <option  value="{{ p['jid'] }}">{{ p['jasen'] }} </option>
+        {% endif %}
+        {% set j = j+1 %}
+  {% endfor %}
+{% endif %}
+</select>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="vuokraukset" name="vuokraukset" xmlns="http://www.w3.org/1999/xhtml">
+{% if kirjaus=="ok" %} 
+<ul>
+  {% for p in vuokraukset %}
+        {% if p['jasen']!= edellinen%}
+        <li >  {{ p['jasen'] }}
+            <ul>
+               {% if p['vpvm'] %} 
+                <li ><a data-jid="{{ p['jid'] }}" data-eid="{{ p['eid'] }}" data-vpvm="{{ p['vpvm'] }}" 
+                data-ppvm="{{ p['ppvm'] }}" class="vuokraus"  href="#">{{p['elokuva']}}</a><span>{{ p['vpvm'] }}</span> <span>{{ p['ppvm'] }}</span></li>
+               {% endif %} 
+            </ul>
+        </li> 
+        {% else %}
+        <li class="hidePallo" >  
+            <ul>
+                {% if p['vpvm'] %} 
+                <li ><a data-jid="{{ p['jid'] }}" data-eid="{{ p['eid'] }}" data-vpvm="{{ p['vpvm'] }}" 
+                data-ppvm="{{ p['ppvm'] }}" class="vuokraus"  href="#">{{p['elokuva']}} </a><span>{{ p['vpvm'] }}</span>  <span>{{ p['ppvm'] }}</span></li>   
+                {% endif %} 
+            </ul>
+        </li> 
+        {% endif %}
+       {% set edellinen = p['jasen'] %}
+  {% endfor %}
+   </ul>
+{% endif %}
+</div>

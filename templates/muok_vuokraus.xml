@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form id="lomake" action="" method="post" xmlns="http://www.w3.org/1999/xhtml">
+<fieldset>
+<legend>Vuokrauksen tiedot</legend>
+<div>
+  <label for="jasen">Jäsen</label>
+  <select id="jasen" name="jasen" >
+   
+  {% for p in jasenet %}
+        {% if  p['jid'] == vuokraus['jid']  %}
+        <option selected="selected" value="{{ p['jid'] }}">{{ p['jasen'] }} </option>
+        {% else %}
+        <option  value="{{ p['jid'] }}">{{ p['jasen'] }} </option>
+        {% endif %}
+        
+  {% endfor %}
+
+</select>
+</div>
+<div>
+  <label for="elokuva">Elokuva</label>
+  <select id="elokuva" name="elokuva" xmlns="http://www.w3.org/1999/xhtml">
+   
+  {% for p in elokuvat %}
+        {% if p['eid'] == vuokraus['eid']  %}
+        <option selected="selected" value="{{ p['eid'] }}">{{ p['elokuva'] }} </option>
+        {% else %}
+        <option  value="{{ p['eid'] }}">{{ p['elokuva'] }} </option>
+        {% endif %}
+       
+  {% endfor %}
+
+</select>
+</div>
+<div>
+  <label for="vpvm">Vuokrauspäivämäärä</label>
+  <input type="text" id="vpvm" name="vpvm" size="20" maxlength="10" value="{{ vuokraus['vpvm'] }}"/>
+ 
+</div>
+<div>
+  <label for="ppvm">Palautuspäivämäärä</label>
+  <input type="text" id="ppvm" name="ppvm" size="20" maxlength="10" value="{{ vuokraus['ppvm'] }}"/>
+</div>
+<p id="virhe"></p>
+</fieldset>
+<p><input type="submit" name="laheta" id="laheta"  value="Muokkaa vuokrausta!" /></p>
+</form>
+
